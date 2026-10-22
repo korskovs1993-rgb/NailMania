@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.sqlite3
+*.nbak
+backups/
+staticfiles/
+.coverage
+test-results.txt
+
+.keys/

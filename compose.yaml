@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PGDATABASE:-nailbook}
+      POSTGRES_USER: ${PGUSER:-nailbook}
+      POSTGRES_PASSWORD: ${PGPASSWORD:?Set PGPASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PGHOST: db
+      DEMO_SQLITE: '0'
+    ports:
+      - '127.0.0.1:8000:8000'
+    depends_on:
+      db:
+        condition: service_healthy
+  notifications:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./.keys:/app/.keys:ro
+    environment:
+      PGHOST: db
+      DEMO_SQLITE: '0'
+    command: [python, manage.py, send_notifications, --loop]
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:

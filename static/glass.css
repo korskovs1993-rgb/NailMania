@@ -1,0 +1,36 @@
+:root[data-design=glass]{--shadow:0 12px 40px #3023580b}
+:root[data-design=glass] body{background:radial-gradient(ellipse at 10% 0%,var(--soft),transparent 55%),radial-gradient(ellipse at 100% 80%,var(--side),transparent 55%),var(--bg);background-attachment:fixed;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root[data-design=glass] h1,:root[data-design=glass] h2,:root[data-design=glass] .stat strong{font-family:inherit;font-weight:650;letter-spacing:-.045em}
+:root[data-design=glass] .sidebar,:root[data-design=glass] .topbar{background:var(--paper)}
+:root[data-design=glass] .card,:root[data-design=glass] .stat{border-radius:24px;box-shadow:var(--shadow)}
+:root[data-design=glass] .button{border-radius:16px}
+:root[data-design=glass] .sidebar nav a{border-radius:16px}
+:root[data-design=glass] .sidebar nav a[aria-current]{background:var(--soft)}
+:root[data-design=glass] .brand-mark{border-radius:15px;box-shadow:0 6px 18px var(--soft)}
+:root[data-design=glass] .day{border-radius:14px}
+.account-access{display:flex;align-items:center;gap:12px}.account-access a{min-height:44px;display:inline-flex;align-items:center;color:var(--accent);font-weight:600}
+@supports(backdrop-filter:blur(20px)){:root[data-design=glass] .sidebar,:root[data-design=glass] .topbar{background:color-mix(in srgb,var(--paper) 74%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}}
+@media(max-width:700px){:root[data-design=glass] body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}:root[data-design=glass] .sidebar>nav{position:fixed;z-index:30;bottom:calc(10px + env(safe-area-inset-bottom));left:12px;right:12px;padding:7px;border:1px solid var(--line);border-radius:25px;background:var(--paper);box-shadow:0 8px 32px #20152c24}:root[data-design=glass] .sidebar>nav a{min-height:48px;min-width:0;justify-content:center}:root[data-design=glass] .sidebar-bottom{display:none}:root[data-design=glass] h1{font-size:34px}:root[data-design=glass] .card{border-radius:22px}:root[data-design=glass] .topbar>span{display:none}:root[data-design=glass] .topbar{justify-content:space-between;height:54px}.account-access{margin-left:auto}.account-access a{font-size:12px}}
+:root[data-design=glass] .sidebar{backdrop-filter:none;-webkit-backdrop-filter:none}@media(max-width:700px){:root[data-design=glass] .sidebar>nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:color-mix(in srgb,var(--paper) 90%,transparent)}}
+
+/* Glass has its own surfaces; palette variables still control all six themes. */
+:root[data-design=glass]{--glass-edge:rgba(255,255,255,.72);--glass-shadow:0 16px 46px #35255410,inset 0 1px 0 #ffffffa6}
+:root[data-design=glass][data-theme=night]{--glass-edge:rgba(255,255,255,.18);--glass-shadow:0 16px 46px #00000025,inset 0 1px 0 #ffffff12}
+:root[data-design=glass] body{background:radial-gradient(ellipse at 12% 12%,var(--soft) 0,transparent 55%),radial-gradient(ellipse at 88% 60%,var(--side) 0,transparent 52%),var(--bg)}
+:root[data-design=glass] .card,:root[data-design=glass] .stat,:root[data-design=glass] .catalog-item{border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);border-radius:24px}
+@supports ((backdrop-filter:blur(20px)) or (-webkit-backdrop-filter:blur(20px))){
+ :root[data-design=glass] body{background:radial-gradient(ellipse at 4% 8%,color-mix(in srgb,var(--accent) 28%,var(--bg)) 0,transparent 50%),radial-gradient(ellipse at 95% 75%,color-mix(in srgb,var(--accent) 19%,var(--bg)) 0,transparent 50%),var(--bg);background-attachment:fixed}
+ :root[data-design=glass] .card,:root[data-design=glass] .stat,:root[data-design=glass] .catalog-item{background:color-mix(in srgb,var(--paper) 62%,transparent);backdrop-filter:blur(24px) saturate(125%);-webkit-backdrop-filter:blur(24px) saturate(125%)}
+ :root[data-design=glass] .topbar{background:color-mix(in srgb,var(--paper) 48%,transparent)}
+ @media(min-width:701px){:root[data-design=glass] .sidebar{background:color-mix(in srgb,var(--paper) 42%,transparent);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}}
+}
+:root[data-design=glass] .catalog-tabs,:root[data-design=glass] .calendar-view-switch{background:color-mix(in srgb,var(--side) 65%,transparent);border-color:var(--glass-edge)}
+.booking-identity{display:grid;gap:6px;background:var(--soft);border-radius:16px;padding:18px;margin:18px 0 24px}.booking-identity span{color:var(--muted)}
+.account-links{display:grid;gap:16px;margin:20px 0}.export-controls{margin:20px 0}.schedule-controls label{min-width:0}.schedule-controls select{max-width:360px}
+:root[data-theme=sage]{--night-accent:#b2d4b7}:root[data-theme=lavender]{--night-accent:#c6b6ef}:root[data-theme=sand]{--night-accent:#e7c8a7}:root[data-theme=ocean]{--night-accent:#a9d4e3}
+:root[data-color=dark]{--bg:#202327;--paper:#2a2e33;--side:#30343b;--ink:#f3ece6;--muted:#c2bdc8;--accent:var(--night-accent,#e0b7c6);--soft:#42434d;--line:#51515c;--personal:#3b4140;--glass-edge:rgba(255,255,255,.18);--glass-shadow:0 16px 46px #00000025,inset 0 1px 0 #ffffff12;color-scheme:dark}
+:root[data-theme=night][data-color=light]{--bg:#f7f3f1;--paper:#fffdfb;--side:#efe7e5;--ink:#342c32;--muted:#71686f;--accent:#795263;--soft:#f0dfe5;--line:#e7dcdf;--personal:#ede9df;--glass-edge:rgba(255,255,255,.72);color-scheme:light}
+:root[data-design=glass][data-glass=calm] .card,:root[data-design=glass][data-glass=calm] .stat,:root[data-design=glass][data-glass=calm] .catalog-item,:root[data-design=glass][data-glass=calm] .sidebar,:root[data-design=glass][data-glass=calm] .sidebar>nav,:root[data-design=glass][data-glass=calm] .topbar{background:var(--paper);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border-color:var(--line)}
+:root[data-design=glass][data-glass=calm] body{background:var(--bg)}
+:root[data-large-text="1"] body{font-size:18px}:root[data-large-text="1"] p,:root[data-large-text="1"] .button,:root[data-large-text="1"] .field>label,:root[data-large-text="1"] form>p>label{font-size:17px}:root[data-large-text="1"] small,:root[data-large-text="1"] .muted,:root[data-large-text="1"] .pill,:root[data-large-text="1"] .stat,:root[data-large-text="1"] .check,:root[data-large-text="1"] .text-link{font-size:14px}:root[data-large-text="1"] .sidebar nav a span{font-size:12px}:root[data-large-text="1"] .day small{font-size:11px}:root[data-large-text="1"] .calendar-date{min-height:66px}:root[data-large-text="1"] .calendar-navigation{flex-wrap:wrap}
+@media(prefers-reduced-transparency:reduce){:root[data-design=glass] .card,:root[data-design=glass] .stat,:root[data-design=glass] .catalog-item,:root[data-design=glass] .sidebar,:root[data-design=glass] .topbar,:root[data-design=glass] .sidebar>nav{background:var(--paper);backdrop-filter:none;-webkit-backdrop-filter:none}}

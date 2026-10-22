@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<div class="narrow"><a class="text-link" href="{% url 'preferences' %}">← Настройки</a><h1>{{ title }}</h1><p>{{ subtitle }}</p><form method="post" class="card">{% csrf_token %}{{ form.as_p }}<button class="button">{{ button_label }}</button></form></div>{% endblock %}

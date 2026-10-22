@@ -1,0 +1,2 @@
+{% load static %}<div class="actions export-controls"><button class="button" type="button" id="save-schedule">Сохранить картинку</button><button class="button secondary" type="button" id="share-schedule">Поделиться</button><span id="export-status" role="status"></span></div>
+{{ share_data|json_script:'schedule-data' }}<script src="{% static 'schedule-export.js' %}?v=1" defer></script>

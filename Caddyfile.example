@@ -1,0 +1,7 @@
+# Run on the same host as the loopback-bound Waitress service.
+# Replace with a domain/subdomain resolving to this Russian server.
+nailbook.example.ru {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:8000
+    # Do not enable access logs containing secret /s/ URLs or query strings.
+}
